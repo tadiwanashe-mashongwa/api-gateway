@@ -10,7 +10,7 @@ public class GatewaySecurityConfig {
     @Bean
     SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         return http.csrf(ServerHttpSecurity.CsrfSpec::disable)
-                .authorizeExchange(exchange -> exchange.pathMatchers("/actuator/health", "/v3/api-docs/**", "/swagger-ui/**", "/api/parts/**", "/api/brands/**", "/api/categories/**").permitAll().anyExchange().authenticated())
+                .authorizeExchange(exchange -> exchange.pathMatchers("/actuator/health", "/v3/api-docs", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui", "/swagger-ui/**", "/api/parts/**", "/api/brands/**", "/api/categories/**").permitAll().anyExchange().authenticated())
                 .oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt).build();
     }
 }
