@@ -36,6 +36,11 @@ spring:
           allowed-headers: '*'
           exposed-headers: [Location]
           allow-credentials: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8080/realms/sparelink}
 management:
   endpoints:
     web:
