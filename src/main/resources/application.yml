@@ -27,15 +27,6 @@ spring:
             - id: notification-service
               uri: ${NOTIFICATION_SERVICE_URL:http://localhost:8087}
               predicates: [Path=/api/notifications/**]
-  webflux:
-    cors:
-      mappings:
-        '[/**]':
-          allowed-origins: ${CORS_ALLOWED_ORIGIN:http://localhost:3000}
-          allowed-methods: [GET, POST, PUT, PATCH, DELETE, OPTIONS]
-          allowed-headers: '*'
-          exposed-headers: [Location]
-          allow-credentials: true
   security:
     oauth2:
       resourceserver:
